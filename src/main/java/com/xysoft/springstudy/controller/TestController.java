@@ -37,7 +37,7 @@ public class TestController {
         accountService.regNewAccount(username,pwd);
         model.put("name","jinyanhua");
         model.put("age","31");
-        model.put("lover","z");
+        model.put("lover","wwwhusteducn");
         List<String> devices = Lists.newArrayList("iPhone","iPod Touch","iMac","iPad","Apple TV");
         model.put("devices",devices);
         return "json";
