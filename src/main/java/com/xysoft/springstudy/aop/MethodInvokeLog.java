@@ -21,6 +21,7 @@ public class MethodInvokeLog {
         try {
             System.out.println(joinPoint.getTarget().getClass());
             System.out.println(joinPoint.getSignature().getName());
+            System.out.println("test git commit");
             joinPoint.proceed();
         } catch (Throwable throwable) {
             throwable.printStackTrace();
