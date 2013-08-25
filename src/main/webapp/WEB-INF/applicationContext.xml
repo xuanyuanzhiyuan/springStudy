@@ -2,9 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-<bean id="beanNameAwarStudy" class="com.xysoft.springstudy.beans.BeanNameAwareStudy" />
-<bean id="beanUtils" class="com.xysoft.springstudy.utils.SpringBeanUtils" />
-<bean class="com.xysoft.springstudy.service.impl.AccountServiceImpl" />
-<bean id="methodInvokeLogger" class="com.xysoft.springstudy.aop.MethodInvokeLog"/>
-<bean class="com.xysoft.springstudy.aop.NoneSourceClass"/>
+    <bean id="beanNameAwarStudy" class="com.xysoft.springstudy.beans.BeanNameAwareStudy" />
+    <bean id="beanUtils" class="com.xysoft.springstudy.utils.SpringBeanUtils" />
+    <bean class="com.xysoft.springstudy.service.impl.AccountServiceImpl" />
+    <bean id="methodInvokeLogger" class="com.xysoft.springstudy.aop.MethodInvokeLog"/>
+    <bean class="com.xysoft.springstudy.aop.NoneSourceClass"/>
+    <bean id="sysParamBean" class="com.xysoft.springstudy.jmx.SysParamBean" />
+    <bean id="mbeanExporter" class="org.springframework.jmx.export.MBeanExporter">
+        <property name="beans">
+            <map>
+                <entry key = "spring:study=SysParamBean" value-ref="sysParamBean" />
+            </map>
+        </property>
+    </bean>
 </beans>
