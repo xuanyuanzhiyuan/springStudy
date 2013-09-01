@@ -1,6 +1,7 @@
 package com.xysoft.springstudy.service.impl;
 
 import com.xysoft.springstudy.service.AccountService;
+import org.springframework.security.access.annotation.Secured;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,6 +12,7 @@ import com.xysoft.springstudy.service.AccountService;
  */
 public class AccountServiceImpl implements AccountService {
     @Override
+    @Secured("ROLE_ADMIN")
     public void regNewAccount(String name, String pwd) {
         System.out.println("business==>"+name+" : " + pwd);
     }

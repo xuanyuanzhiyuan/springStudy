@@ -34,12 +34,16 @@ public class TestController {
 
     @RequestMapping(value="/regNewUser",params="method=regNewUser")
     public String regNewUser(String username,String pwd,Map<String,Object> model){
-        accountService.regNewAccount(username,pwd);
-        model.put("name","jinyanhua");
-        model.put("age","31");
-        model.put("lover","wwwhusteducn");
-        List<String> devices = Lists.newArrayList("iPhone","iPod Touch","iMac","iPad","Apple TV");
-        model.put("devices",devices);
+        try{
+            accountService.regNewAccount(username,pwd);
+            model.put("name","jinyanhua");
+            model.put("age","31");
+            model.put("lover","wwwhusteducn");
+            List<String> devices = Lists.newArrayList("iPhone","iPod Touch","iMac","iPad","Apple TV");
+            model.put("devices",devices);
+        }catch (Exception e){
+            model.put("Exception",e.getMessage());
+        }
         return "json";
     }
 

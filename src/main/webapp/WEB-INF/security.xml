@@ -7,8 +7,9 @@
            http://www.springframework.org/schema/security
            http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
-    <http auto-config = "true">
-        <intercept-url pattern="/**" access="ROLE_USER"/>
+    <http auto-config = "true" use-expressions="true">
+        <intercept-url pattern="/list.jsp" access="permitAll"/>
+        <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
     </http>
     <user-service id="us">
         <user name="jyh" password="pwd" authorities="ROLE_USER, ROLE_ADMIN" />
@@ -17,4 +18,6 @@
     <authentication-manager>
         <authentication-provider user-service-ref="us" />
     </authentication-manager>
+    <!-- method invocation protection -->
+    <global-method-security secured-annotations="enabled" />
 </beans:beans>
