@@ -13,6 +13,7 @@ public class NIO2Demo {
     public static void main(String[] args) {
         NIO2Demo demo = new NIO2Demo();
         demo.walkDirectory("C:/Document/Dropbox");
+        demo.directoryWatcher("C:/Users/jinyanhua/Desktop");
     }
 
     public void walkDirectory(String filePath){
@@ -55,4 +56,24 @@ public class NIO2Demo {
            e.printStackTrace();
        }
    }
+
+    public void directoryWatcher(String path){
+        try {
+            Path p = Paths.get(path);
+            WatchService ws = p.getFileSystem().newWatchService();
+            p.register(ws, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_MODIFY, StandardWatchEventKinds.ENTRY_DELETE);
+            while (true){
+                WatchKey watchKey = ws.take();
+                for (WatchEvent event : watchKey.pollEvents()) {
+                    System.out.println(event.kind() + " : " + event.context());
+                    watchKey .reset();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
