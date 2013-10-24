@@ -25,7 +25,6 @@ public class ConcurrencyDemo {
     }
 
     private void useLockReplaceSynchronized(){
-        boolean isGetLock = lock.tryLock();
         try{
             lock.lock();
             System.out.println("do business logic here ");
@@ -38,7 +37,7 @@ public class ConcurrencyDemo {
 
         @Override
         public void run() {
-            ConcurrencyDemo.this.useLockReplaceSynchronized();
+            useLockReplaceSynchronized();
         }
     }
 }
