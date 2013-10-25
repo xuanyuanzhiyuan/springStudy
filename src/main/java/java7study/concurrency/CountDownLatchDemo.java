@@ -21,7 +21,7 @@ public class CountDownLatchDemo {
         for (int i = 0; i < 5; i++) {
             executor.execute(new Work(i,latch));
         }
-        System.out.println("read to go......");
+        System.out.println("ready to go......");
         latch.countDown();
     }
 
