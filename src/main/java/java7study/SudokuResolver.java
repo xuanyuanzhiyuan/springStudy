@@ -248,7 +248,7 @@ public class SudokuResolver {
 //        puzz[7] = new int[] {0,9,5,0,3,8,2,7,6};
 //        puzz[8] = new int[] {0,0,0,9,6,0,0,0,0};
         SudokuResolver sr = new SudokuResolver(puzz);
-        System.out.println("start...");
+        System.out.println("start to resolve...");
         long start = System.currentTimeMillis();
         int [][] result = sr.resuolve();
         long end = System.currentTimeMillis();
