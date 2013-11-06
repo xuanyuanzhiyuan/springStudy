@@ -1,6 +1,9 @@
 package java7study;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * User: jinyanhua
@@ -13,6 +16,7 @@ public class NewGrammarDemo {
         java7demo.showNewStringSwitch("A");
         java7demo.numberInUnderscore();
         java7demo.tryWithResource();
+        java7demo.diamondOperator();
 
     }
 
@@ -48,5 +52,10 @@ public class NewGrammarDemo {
         }catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void diamondOperator(){
+        List<Map<String,Long>> myReocrd = new ArrayList<>();
+        System.out.printf("result => " + myReocrd);
     }
 }
